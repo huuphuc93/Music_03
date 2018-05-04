@@ -1,2 +1,9 @@
+//= require jquery
+//= require bootstrap-sprockets
+//= require jquery_ujs
 //= require rails-ujs
+//= require jquery.etalage.min
+//= require jquery.flexisel
+//= require jquery.min
+//= require jquery.wmuSlider
 //= require_tree .

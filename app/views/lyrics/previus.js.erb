@@ -1,0 +1,7 @@
+<% if 0 < @index %>
+  $(".previus").html("<%= j render partial: 'songs/previus', locals: {lyric_item: @lyric_new_item} %>");
+  $(".next").html("<%= j render partial: 'songs/next', locals: {lyric_item: @lyric_new_item} %>");
+  $(".count-version").html("<%= @lyrics.index(@lyric_new_item) + 1 %>");
+  $(".lyric-content").html("<p><%= @lyric_new_item.content %></p>");
+  $(".contribute").html("<%= @lyric_new_item.user_name %>");
+<% end %>

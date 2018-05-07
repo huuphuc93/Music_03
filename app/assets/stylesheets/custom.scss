@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "color";
 
 body {
   padding-top: 0px;
@@ -72,3 +73,191 @@ body {
   display: block;
   width: 170px;
 }
+.result-item {
+  border: 1px solid $gray;
+  padding: 10px;
+  margin: 30px;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.example1 {
+  height: 200px;	
+  overflow: hidden;
+  position: relative;
+}
+.example1 h3 {
+  padding-top: 70px;
+  font-size: 3em;
+  color: limegreen;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  line-height: 50px;
+  text-align: center;
+  /* Starting position */
+  -moz-transform:translateX(100%);
+  -webkit-transform:translateX(100%);	
+  transform:translateX(100%);
+  /* Apply animation to this element */	
+  -moz-animation: example1 15s linear infinite;
+  -webkit-animation: example1 15s linear infinite;
+  animation: example1 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes example1 {
+  0%   { -moz-transform: translateX(100%); }
+  100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes example1 {
+  0%   { -webkit-transform: translateX(100%); }
+  100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes example1 {
+  0%   { 
+  -moz-transform: translateX(100%); /* Firefox bug fix */
+  -webkit-transform: translateX(100%); /* Firefox bug fix */
+  transform: translateX(100%); 		
+  }
+  100% { 
+  -moz-transform: translateX(-100%); /* Firefox bug fix */
+  -webkit-transform: translateX(-100%); /* Firefox bug fix */
+  transform: translateX(-100%); 
+  }
+}
+
+audio {
+  width: 840px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.audio-player {
+  position: relative;
+  width: 840px;
+  height: 245px;
+  background-color: $black;
+  img {
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+  }
+}
+
+.lyric-section {
+  width: 840px;
+  background-color: $gray-lyric;
+  padding: 10px 20px;
+}
+
+.lyric-footer a {
+  cursor: pointer;
+}
+
+.fix-border-recommend{
+  border: none !important;  
+}
+
+.recommend-song {
+  border-bottom: 1px solid $gray;
+  img {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+  }
+}
+
+.switch {
+  margin: 10px;
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.comment-section {
+  position: relative;
+  border: 2px solid $blue-light;
+  border-radius: 5px;
+  background-color: $white;
+  margin-top: 20px;
+}
+
+.delete_comment {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+}
+
+.delete_comment:hover {
+  cursor: pointer;
+}
+
+.replies {
+  margin-left: 50px;
+}
+
+.comment-session {
+  margin-top: 50px;
+}
+
+.comment-info {
+  padding: 5px 10px;
+}
+.user-info {
+  padding: 5px 10px;
+}
+

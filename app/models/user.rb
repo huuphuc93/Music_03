@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorite_lists, dependent: :destroy
-  has_many :lysics, dependent: :destroy
+  has_many :lyrics, dependent: :destroy
   has_many :rates, dependent: :destroy
   enum role: [:user, :admin]
   attr_accessor :remember_token, :activation_token, :reset_token
@@ -57,7 +57,7 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
-    
+
     def from_omniauth auth
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.uid = auth.uid
@@ -69,7 +69,7 @@ class User < ApplicationRecord
         user.activated_at = Time.now
       end
     end
-    
+
     def new_with_session params
       if session["user_attributes"]
         new(session["user_attributes"]) do |user|

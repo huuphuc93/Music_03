@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503070335) do
+ActiveRecord::Schema.define(version: 20180506095442) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
+    t.bigint "artist_id"
+    t.index ["artist_id"], name: "index_albums_on_artist_id"
     t.index ["category_id"], name: "index_albums_on_category_id"
   end
 
@@ -33,6 +35,19 @@ ActiveRecord::Schema.define(version: 20180503070335) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "data_fingerprint"
+    t.string "type", limit: 30
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
     t.string "commentable_type"
@@ -44,15 +59,6 @@ ActiveRecord::Schema.define(version: 20180503070335) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "favarites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "song_id"
-    t.bigint "favorite_list_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["favorite_list_id"], name: "index_favarites_on_favorite_list_id"
-    t.index ["song_id"], name: "index_favarites_on_song_id"
-  end
-
   create_table "favorite_lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.bigint "user_id"
@@ -61,15 +67,24 @@ ActiveRecord::Schema.define(version: 20180503070335) do
     t.index ["user_id"], name: "index_favorite_lists_on_user_id"
   end
 
-  create_table "lysics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "content"
-    t.boolean "accepted"
+  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "song_id"
+    t.bigint "favorite_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favorite_list_id"], name: "index_favorites_on_favorite_list_id"
+    t.index ["song_id"], name: "index_favorites_on_song_id"
+  end
+
+  create_table "lyrics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "content"
+    t.boolean "accepted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "song_id"
     t.bigint "user_id"
-    t.index ["song_id"], name: "index_lysics_on_song_id"
-    t.index ["user_id"], name: "index_lysics_on_user_id"
+    t.index ["song_id"], name: "index_lyrics_on_song_id"
+    t.index ["user_id"], name: "index_lyrics_on_user_id"
   end
 
   create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -85,12 +100,19 @@ ActiveRecord::Schema.define(version: 20180503070335) do
 
   create_table "songs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
+    t.string "audio_file_name"
+    t.string "audio_content_type"
+    t.integer "audio_file_size"
+    t.datetime "audio_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "album_id"
-    t.bigint "artist_id"
+    t.string "cover_image_file_name"
+    t.string "cover_image_content_type"
+    t.integer "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
+    t.integer "view", default: 0
     t.index ["album_id"], name: "index_songs_on_album_id"
-    t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -110,14 +132,14 @@ ActiveRecord::Schema.define(version: 20180503070335) do
     t.datetime "reset_sent_at"
   end
 
+  add_foreign_key "albums", "artists"
   add_foreign_key "albums", "categories"
   add_foreign_key "comments", "users"
-  add_foreign_key "favarites", "favorite_lists"
-  add_foreign_key "favarites", "songs"
   add_foreign_key "favorite_lists", "users"
-  add_foreign_key "lysics", "songs"
-  add_foreign_key "lysics", "users"
+  add_foreign_key "favorites", "favorite_lists"
+  add_foreign_key "favorites", "songs"
+  add_foreign_key "lyrics", "songs"
+  add_foreign_key "lyrics", "users"
   add_foreign_key "ratings", "users"
   add_foreign_key "songs", "albums"
-  add_foreign_key "songs", "artists"
 end

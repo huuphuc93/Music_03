@@ -3,3 +3,19 @@ user:
   maximum_name: 50
   maximum_email: 255
   minimum_password: 6
+  
+users:
+  -
+    name: nomal
+    email: normal_user@gmail.com
+    password: "123456"
+    password_confirmation: "123456"
+    role: 0
+    activated: true
+  - 
+    name: admin
+    email: admin@gmail.com
+    password: "123456"
+    password_confirmation: "123456"
+    role: 1
+    activated: true

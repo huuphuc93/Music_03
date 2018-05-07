@@ -16,6 +16,9 @@ en:
     please_login: "Please log in."
     user_dont_exit: "Users don't exits"
     user_delete_failed: "Delete user failed"
+    created_lyric_succeed: "Create lysic succeed"
+    created_lyric_failed: "Create lysic failed"
+    song_not_exits: "Cant find song with id: "
   views:
     password_resets:
       edit:
@@ -80,10 +83,25 @@ en:
       footer:
         mp3: "MP3 Player"
         follow: "Follow Us"
+    songs:
+      show:
+        artist: "Artist"
+        album: "Album"
+        category: "Category"
+        lysic: "Lysic for"
+        version: "version"
+        contribute: "Contribute by"
+        contribute_lyric: "Contribute Lyric"
+        content: "Content"
+        submit: "Submit"
+        close: "close"
+        dont_have_lyric: "This song don't have lyric. Please contribute if you interest!"
+        recommend: "Recommend"
+        autoplay: "Autoplay"
+        comment_here: "Comment Here"
   mailers:
     user_mailer:
       account_activation: "Account activation"
       password_reset: "Password reset"
   admin:
     dasboard: "Dasboard"
-

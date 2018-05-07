@@ -1,0 +1,13 @@
+<li class= "recommend-song item1" data-id= "<%= recommend.id %>">  
+  <div class="row">
+    <div class="col-md-2">
+      <%= link_to song_path(recommend) do %>
+        <%= image_tag recommend.cover_image %>
+      <% end %>
+    </div>
+    <div class="col-md-10">
+      <h4><%= link_to recommend.name, song_path(recommend) %></h4>
+      <h5><%= recommend.artist_name %></h5> 
+    </div>
+  </div>
+</li>

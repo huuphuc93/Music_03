@@ -16,6 +16,9 @@ vi:
     please_login: "Làm ơn đăng nhập"
     user_dont_exit: "User không tồn tại"
     user_delete_failed: "Xóa user thất bại"
+    created_lyric_succeed: "Tạo lời bài hát thành công, vui lòng chờ kiểm duyệt"
+    created_lyric_failed: "Tạo lời bài hát thất bại"
+    song_not_exits: "Không tìm thấy bài hát với id: "
   views:
     password_resets:
       edit:
@@ -80,6 +83,22 @@ vi:
       footer:
         mp3: "MP3 Player"
         follow: "Theo dõi chúng tôi"
+    songs:
+      show:
+        artist: "Tác giả"
+        album: "Album"
+        category: "Thể loại"
+        lysic: "Lời bài hát"
+        version: "phiên bản"
+        contribute: "Đóng góp bởi"
+        contribute_lyric: "Đóng góp lời bài hát"
+        content: "Lời bài hát"
+        submit: "Gửi"
+        close: "Đóng"
+        dont_have_lyric: "Bài hát này chưa có lời, vui lòng đóng góp lời bài hát nếu bạn hứng thú!"
+        recommend: "GỢI Ý"
+        autoplay: "Tự động chơi nhạc"
+        comment_here: "Bình luận tại đây"
   mailers:
     user_mailer:
       account_activation: "Kích hoạt tài khoản"

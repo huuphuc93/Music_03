@@ -1,0 +1,26 @@
+<%= form_for @user do |f| %>
+  <div class="register-top-grid">
+    <h3><%= t "views.users.form.personal_info" %></h3>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="mation">
+      <span><%= t "views.users.form.name" %><label>*</label></span>
+      <%= f.text_field :name, class: "form-control" %>
+    
+      <span><%= t "views.users.form.email" %><label>*</label></span>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+    <div class="register-bottom-grid">
+      <h3><%= t "views.users.form.login_information" %></h3>
+      <div class="mation">
+        <span><%= t "views.users.form.password" %><label>*</label></span>
+        <%= f.password_field :password, class: "form-control" %><br/>
+        <span><%= t "views.users.form.confirmation" %><label>*</label></span>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+    </div>
+    <div class="register-but">
+      <%= f.submit t("views.users.form.submit"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+<div class="clearfix"> </div>

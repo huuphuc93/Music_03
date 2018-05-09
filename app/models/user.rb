@@ -36,6 +36,11 @@ class User < ApplicationRecord
     return false if digest.nil?
     BCrypt::Password.new digest.is_password? token
   end
+  
+  def activate
+    update_attributes activated: true, activated_at: Time.zone.now
+  end
+
 
   def forget
     update_attributes remember_digest: nil
@@ -64,6 +69,19 @@ class User < ApplicationRecord
       end
       BCrypt::Password.create string, cost: cost
     end
+
+    def update_user user, user_params
+      if user_params[:password].empty?
+        user.errors.add password: t("flash.cant_empty")
+        render :edit
+      elsif user.update_attributes user_params
+        log_in user
+        flash[:success] = t "flash.reset_password_success"
+        redirect_to user
+      else
+        render :edit
+      end
+    end  
 
     def new_token
       SecureRandom.urlsafe_base64

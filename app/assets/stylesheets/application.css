@@ -1,0 +1,8 @@
+ /*
+ *= require style
+ *= require form
+ *= require etalage
+ *= require bootstrap
+ *= require_tree .
+ *= require_self
+ */

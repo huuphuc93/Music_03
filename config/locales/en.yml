@@ -58,3 +58,88 @@ en:
           edit: "Edit"
           delete: "Delete"
           create_at: "Create At"
+    account_not_activated: "Account not activated."
+    account_activated: "Account activated!"
+    check_email: "Check your email for the activation link."
+    invalid_email: "Invalid email/password combination"
+    user_deleted: "User deleted"
+    profile_updated: "Profile updated"
+    email_send: "Email sent with password reset instructions"
+    email_not_found: "Email address not found"
+    cant_empty: "can't be empty"
+    reset_password_success: "Password has been reset."
+    password_expired: "Password reset has expired."
+    invalid_activation: "Invalid activation link"
+    please_login: "Please log in."
+    user_dont_exit: "Users don't exits"
+    user_delete_failed: "Delete user failed"
+  views:
+    password_resets:
+      edit:
+        reset_password: "Reset password"
+        password: "Password"
+        confirmation: "Password Confirmation"
+        update_password: "Update password"
+      new:
+        reset_password: "Reset password"
+        email_address: "Email Address"
+        submit: "Submit"
+    sessions:
+      new:
+        register: "REGISTERED CUSTOMERS"
+        forgot_password: "Forgot Your Password?"
+        remember_me: "Remember me on this computer"
+        login: "Log in"
+        have_account: "If you have an account with us, please log in."
+        new_account: "Create an Account"
+    user_mailer:
+      account_activation:
+        welcome: "Welcome to the Music_03!."
+        click_link: "Click on the link below to activate your account:"
+      password_reset:
+        reset_password: "Reset Password"
+        link_reset: "To reset your password click the link below:"
+        exipire_time: "This link will expire in two hours."
+        did_not_request: "If you did not request your password to be reset"
+        ignore_email: "please ignore this email and your password will stay as it is."
+    users:
+      form:
+        personal_info: "PERSONAL INFORMATION"
+        name: "User Name"
+        email: "Email Address"
+        login_information: "LOGIN INFORMATION"
+        password: "Password"
+        confirmation: "Confirm Password"
+        submit: "Submit"
+      user:
+        your_sure: "You sure?"
+      edit:
+        edit_user: "Edit user"
+        save_change: "Save changes"
+        update_profile: "Update your profile"
+        change: "Change"
+    layouts:
+      left-menu:
+        categories: "Music Genre"
+        pop: "Pop"
+        rock: "Rock"
+        balass: "Ballass"
+        rock2: "Rock & Roll"
+        rap: "Rap"
+        latin: "Latin"
+      header:
+        acc: "YOUR ACCOUNT"
+        signup: "Sign Up"
+        login: "Login"
+        profile: "Profile"
+        logout: "Logout"
+      footer:
+        mp3: "MP3 Player"
+        follow: "Follow Us"
+  mailers:
+    user_mailer:
+      account_activation: "Account activation"
+      password_reset: "Password reset"
+  admin:
+    dasboard: "Dasboard"
+

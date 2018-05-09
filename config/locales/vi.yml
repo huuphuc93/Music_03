@@ -1,0 +1,86 @@
+vi:
+  flash:
+    account_not_activated: "Tài khoản chưa được kích hoạt."
+    account_activated: "Tài khoản đã được kích hoạt!"
+    check_email: "Kiểm tra email của bạn để kích hoạt tài khoản"
+    invalid_email: "Email hoặc mật khẩu không hợp lệ"
+    user_deleted: "Xóa tài khoản thành công"
+    profile_updated: "Thay đổi thông tin thành công"
+    email_send: "Email đã được gửi với hướng dẫn thay đổi mật khẩu"
+    email_not_found: "Không tìm thấy địa chỉ email"
+    cant_empty: "Không được để trống"
+    reset_password_success: "Mật khẩu đã được thay đổi."
+    password_expired: "Đã hết hạn đặt lại mật khẩu"
+    invalid_activation: "Liên kết kích hoạt không hợp lệ"
+    please_login: "Làm ơn đăng nhập"
+    user_dont_exit: "User không tồn tại"
+    user_delete_failed: "Xóa user thất bại"
+  views:
+    password_resets:
+      edit:
+        reset_password: "Đặt lại mật khẩu"
+        password: "Mật khẩu"
+        confirmation: "Xác nhận lại mật khẩu"
+        update_password: "Thay đổi mật khẩu"
+      new:
+        reset_password: "Đặt lại mật khẩu"
+        email_address: "Địa chỉ Email"
+        submit: "Thay đổi"
+    sessions:
+      new:
+        register: "Thông tin đăng ký"
+        forgot_password: "Quên mật khẩu?"
+        remember_me: "Duy trì đăng nhập"
+        login: "Đăng nhập"
+        have_account: "Nếu bạn có tài khoản, làm ơn hãy đăng nhập"
+        new_account: "Tạo tài khoản mới"
+    user_mailer:
+      account_activation:
+        welcome: "Chào mừng bạn tới với Music_03!."
+        click_link: "Nhấn vào đường dẫn bên dưới để kích hoạt tài khoản:"
+      password_reset:
+        reset_password: "Đặt lại mật khẩu"
+        link_reset: "Bấm vào đường dẫn bên dưới để đặt lại mật khẩu:"
+        exipire_time: "Đường dẫn này sẽ hết hạn trong hai giờ."
+        did_not_request: "Nếu bạn không yêu cầu thay đổi mật khẩu,"
+        ignore_email: "làm ơn bỏ qua email này và mật khẩu của bạn sẽ được giữ nguyên."
+    users:
+      form:
+        personal_info: "THÔNG TIN CÁ NHÂN"
+        name: "Tên người dùng"
+        email: "Địa chỉ Email"
+        login_information: "THÔNG TIN ĐĂNG NHẬP"
+        password: "Mật khẩu"
+        confirmation: "Xác nhận lại mật khẩu"
+        submit: "Gửi"
+      user:
+        your_sure: "Bạn chắc chắn chứ?"
+      edit:
+        edit_user: "Chỉnh sửa thông tin"
+        save_change: "Lưu thay đổi"
+        update_profile: "Thay đổi thông tin cá nhân"
+        change: "Thay đổi"
+    layouts:
+      left-menu:
+        categories: "Thể loại nhạc"
+        pop: "Pop"
+        rock: "Rock"
+        balass: "Ballass"
+        rock2: "Rock & Roll"
+        rap: "Rap"
+        latin: "Latin"
+      header:
+        acc: "Tài khoản của bạn"
+        signup: "Đăng ký"
+        login: "Đăng nhập"
+        profile: "Thông tin cá nhân"
+        logout: "Thoát"
+      footer:
+        mp3: "MP3 Player"
+        follow: "Theo dõi chúng tôi"
+  mailers:
+    user_mailer:
+      account_activation: "Kích hoạt tài khoản"
+      password_reset: "Đặt lại mật khẩu"
+  admin:
+    dasboard: "Bảng điều khiển"

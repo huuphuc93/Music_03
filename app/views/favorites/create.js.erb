@@ -1,0 +1,1 @@
+$(".fl-" + <%= @favorite_list.id %>).html("<%= j render partial: 'favorite_lists/favorite_list', locals: {favorite_list: @favorite_list} %>")

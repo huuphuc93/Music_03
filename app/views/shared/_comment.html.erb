@@ -6,21 +6,26 @@
           <p><%= comment.content %></p>
         </div>
         <div class ="user-info">
-          <%= avatar_for comment.user, size: 24 %>
+          <%= gravatar_for comment.user, size: 24 %>
           <b><%= comment.user.email %></b> 
           <i>&nbsp-&nbsp<%= time_ago_in_words(comment.updated_at) %>&nbsp
-            <%= t "views.comments.comment.ago" %></i>
+            <%= t "views.shared.comment.ago" %></i>
+          <div class="pull-right">
+            <%= link_to t("views.shared.comment.edit"),
+              edit_comment_path(comment), remote:  true %>
+          </div>
         </div>
       </div>
-      
+
       <% if current_user %>
-        <%# if current_user == comment.user || current_user.admin? %>
-          <a onclick = "delete_comment(this)" id=<%= comment.id %>>
-            <span class= "delete_comment" data-mobile_id="<%= comment.mobile_id %>">
+        <% if current_user == comment.user || current_user.admin? %>
+          <%= link_to comment_path(comment), method: :delete,
+            data: {confirm: t("views.shared.comment.your_sure")}, remote: true do %>
+            <span class= "delete_comment">
               <i class="fa fa-times" aria-hidden="true"></i>
             </span>
-          </a>
-        <%# end %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>

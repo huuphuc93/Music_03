@@ -1,0 +1,24 @@
+<tr>
+  <td><%= user_counter + 1 + @offset %></td>
+  <td><%= link_to user.name, user_path(user) %></td>
+  <td><%= user.email %></td>
+  <td><%= activate_user user %></td>
+  <td><%= user.created_at.strftime("%m/%d/%Y") %></td>
+  <td>
+    <%= user.admin? ? t("views.admin.users.user.admin") : t("views.admin.users.user.member") %>
+  </td>
+  <% if !user.admin? %>
+    <td>
+      <%= link_to edit_admin_user_path(user) do %>
+        <span><i class="fa fa-edit fa-1px"></i></span>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to admin_user_path(id: user.id, page: params[:page],
+      search: params[:search]), method: :delete,
+      data: {confirm: t("views.admin.users.user.your_sure")} do %>
+        <span><i class="fa fa-times fa-1px"></i></span>
+      <% end %>
+    </td>
+  <% end %>
+</tr>

@@ -1,0 +1,2 @@
+$("#user-collection").html("<%= j render partial: 'user', collection: @users %>");
+$("#paginator").html("<%= j paginate(@users, :remote => true) %>");

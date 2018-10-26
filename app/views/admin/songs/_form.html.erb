@@ -1,0 +1,38 @@
+<%= form_for [:admin, @song] do |f| %>
+  <div class="register-top-grid">
+    <div class="mation">
+      <%= f.label :name, t("views.admin.songs.form.name"),
+        class: "control-label" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :album, t("views.admin.songs.form.album"),
+        class: "control-label" %>
+      <div class="album-selection">
+        <%= f.collection_select :album_id, album_collection,
+          :id, :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :cover_image, t("views.admin.songs.form.cover_image"),
+        class: "control-label"%>
+      <%= f.file_field :cover_image, class: "form-control"%>
+    </div>
+    <div class="field">
+      <%= f.label :audio, class: "control-label"%>
+      <%= f.file_field :audio, class: "form-control"%>
+    </div>
+    <div class="register-but">
+    <%= f.label :hot_song, t("views.admin.songs.form.hot_song"),
+      class: "check_box inline" do %>
+      <%= f.check_box :hot_song %>
+      <span><%= t "views.admin.songs.form.hot_song" %> <label></label></span>
+    <% end %>
+    </div>
+  </div>
+    <div class="register-but">
+      <%= f.submit t("views.users.form.submit"), class: "btn btn-primary" %>
+    </div>
+<% end %>
+<div class="clearfix"> </div>

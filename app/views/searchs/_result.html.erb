@@ -1,12 +1,26 @@
 <div class="row result-item">
   <li>
     <div class="col-md-2">
-      <%= image_tag result.cover_image %>
+      <%= link_to song_path(result) do %>
+        <%= image_tag result.cover_image %>
+      <% end %>
     </div>
     <div class="col-md-10">
-      <h3><%= result.name %> - <%= result.artist_name %><br/></h3>
-      <%= result.category_name %><br/>
-      <%= result.album_name %>
+      <h3>
+        <%= link_to song_path(result) do %>
+          <%= result.name %>
+        <% end %>
+          - <%= result.artist_name %>
+        </h3>
+      <h5>
+        <%= t "views.songs.show.category" %>:&nbsp
+          <b><%= result.category_name %></b>
+      </h5>
+      <h5><%= t "views.songs.show.album" %>:&nbsp
+        <%= link_to album_path(result.album) do%>
+          <b><%= result.album_name %></b>
+        <% end %>
+      </h5>
     </div>
   </li>
 </div>

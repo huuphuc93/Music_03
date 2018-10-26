@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180506095442) do
+ActiveRecord::Schema.define(version: 20180514022224) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(version: 20180506095442) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.bigint "artist_id"
+    t.string "cover_image_file_name"
+    t.string "cover_image_content_type"
+    t.integer "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
+    t.integer "view", default: 0
     t.index ["artist_id"], name: "index_albums_on_artist_id"
     t.index ["category_id"], name: "index_albums_on_category_id"
   end
@@ -27,6 +32,10 @@ ActiveRecord::Schema.define(version: 20180506095442) do
     t.text "describe"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cover_image_file_name"
+    t.string "cover_image_content_type"
+    t.integer "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -59,11 +68,27 @@ ActiveRecord::Schema.define(version: 20180506095442) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "delayed_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
   create_table "favorite_lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "view", default: 0
     t.index ["user_id"], name: "index_favorite_lists_on_user_id"
   end
 
@@ -73,6 +98,7 @@ ActiveRecord::Schema.define(version: 20180506095442) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["favorite_list_id"], name: "index_favorites_on_favorite_list_id"
+    t.index ["song_id", "favorite_list_id"], name: "index_favorites_on_song_id_and_favorite_list_id", unique: true
     t.index ["song_id"], name: "index_favorites_on_song_id"
   end
 
@@ -112,6 +138,7 @@ ActiveRecord::Schema.define(version: 20180506095442) do
     t.integer "cover_image_file_size"
     t.datetime "cover_image_updated_at"
     t.integer "view", default: 0
+    t.boolean "hot_song"
     t.index ["album_id"], name: "index_songs_on_album_id"
   end
 

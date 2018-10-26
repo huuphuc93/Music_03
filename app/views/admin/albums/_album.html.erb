@@ -1,0 +1,19 @@
+<tr>
+  <td><%= album_counter + 1 + @offset %></td>
+  <td><%= album.name %></td>
+  <td><%= album.artist.name %></td>
+  <td><%= album.category.name %></td>
+  <td><%= album.created_at.strftime("%m/%d/%Y") %></td>
+  <td>
+    <%= link_to edit_admin_album_path(album) do %>
+      <span><i class="fa fa-edit fa-1px"></i></span>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to admin_album_path(id: album.id, page: params[:page],
+      search: params[:search]), method: :delete,
+      data: {confirm: t("views.admin.users.user.your_sure")}, :remote => true do %>
+      <span><i class="fa fa-times fa-1px"></i></span>
+  </td>
+  <% end %>
+</tr>

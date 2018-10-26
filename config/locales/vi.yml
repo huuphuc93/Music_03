@@ -1,5 +1,6 @@
 vi:
   flash:
+    rating_success: "Đánh giá thành công"
     login_success: "Đăng nhập thành công"
     account_not_activated: "Tài khoản chưa được kích hoạt."
     account_activated: "Tài khoản đã được kích hoạt!"
@@ -19,7 +20,49 @@ vi:
     created_lyric_succeed: "Tạo lời bài hát thành công, vui lòng chờ kiểm duyệt"
     created_lyric_failed: "Tạo lời bài hát thất bại"
     song_not_exits: "Không tìm thấy bài hát với id: "
+    album_not_exits: "Không tìm thấy album với id: "
+    category_not_exits: "Không tìm thấy thể loại với id: "
+    favorite_not_exits: "Không tìm thấy yêu thích với id: "
+    comment_not_exits: "Không tìm thấy bình luận với id: "
+    artist_not_exits: "Không tìm thấy nghệ sĩ với id: "
+    lyric_not_exits: "Không tìm thấy lời bài hát với id: "
+    favorite_list_not_exits: "Không tìm thấy danh sách yêu thích với id: "
+    delete_favorite_list_succeed: "Xóa danh sách yêu thích thành công"
+    delete_favorite_list_failed: "Xóa danh sách yêu thích thất bại"
+    create_user_succeed: "Tạo tài khoản thành công"
+    create_user_failed: "Tạo tài khoản thất bại"
+    update_user_succeed: "Chỉnh sửa thông tin người dùng thành công"
+    update_user_failed: "Chỉnh sửa thông tin người dùng thất bại"
+    delete_user_succeed: "Xóa người dùng thành công"
+    delete_user_failed: "Xóa người dùng thất bại"
+    permission_denied: "Bạn không có quyền truy cập vào địa chỉ này"
+    create_category_succeed: "Tạo thể loại thành công"
+    create_category_failed: "Tạo thể loại thất bại"
+    update_category_succeed: "Cập nhật thể loại thành công"
+    update_category_failed: "Cập nhật thể loại thất bại"
+    delete_category_succeed: "Xóa bỏ thể loại thành công"
+    delete_category_failed: "Xóa bỏ thể loại thất bại"
+    create_artist_succeed: "Tạo nghệ sĩ thành công"
+    create_artist_failed: "Tạo nghệ sĩ thất bại"
+    update_artist_succeed: "Cập nhật nghệ sĩ thành công"
+    update_artist_failed: "Cập nhật nghệ sĩ thất bại"
+    create_album_succeed: "Tạo album thành công"
+    create_album_failed: "Tạo album thất bại"
+    update_album_succeed: "Cập nhật album thành công"
+    update_album_failed: "Cập nhật album thất bại"
+    update_lyric_succeed: "Cập nhật lời bài hát thành công"
+    update_lyric_failed: "Cập nhật lời bài hát thất bại"
+    create_song_succeed: "Tạo bài hát thành công"
+    create_song_failed: "Tạo bài hát thất bại"
+    update_song_succeed: "Cập nhật bài hát thành công"
+    update_song_failed: "Cập nhật bài hát thất bại"
   views:
+    pagination:
+      first:  "Trang đầu"
+      truncate: "..."
+      last: "Trang cuối"
+      next: "Tiếp theo"
+      previous: "Trang trước"
     password_resets:
       edit:
         reset_password: "Đặt lại mật khẩu"
@@ -41,6 +84,7 @@ vi:
         new_account: "Tạo tài khoản mới"
     user_mailer:
       account_activation:
+        hi: "Xin chào"
         welcome: "Chào mừng bạn tới với Music_03!."
         click_link: "Nhấn vào đường dẫn bên dưới để kích hoạt tài khoản:"
       password_reset:
@@ -65,8 +109,15 @@ vi:
         save_change: "Lưu thay đổi"
         update_profile: "Thay đổi thông tin cá nhân"
         change: "Thay đổi"
+      show:
+        favorite_list: "Danh sách yêu thích"
+        name: "Tên danh sách"
+        delete: "Xóa"
+    albums:
+      show:
+        recommend: "GỢI Ý ALBUM"
     layouts:
-      left-menu:
+      left_menu:
         categories: "Thể loại nhạc"
         pop: "Pop"
         rock: "Rock"
@@ -80,15 +131,21 @@ vi:
         login: "Đăng nhập"
         profile: "Thông tin cá nhân"
         logout: "Thoát"
+        search: "Tìm kiếm"
+        content_search: "Nhập nội dung tìm kiếm..."
       footer:
         mp3: "MP3 Player"
         follow: "Theo dõi chúng tôi"
+        language: "Ngôn ngữ"
+        english: "Tiếng Anh"
+        vietnamese: "Tiếng Việt"
+        license: "Giấy phép MXH số 314/GP-BTTTT"
     songs:
       show:
         artist: "Tác giả"
         album: "Album"
         category: "Thể loại"
-        lysic: "Lời bài hát"
+        lyric: "Lời bài hát"
         version: "phiên bản"
         contribute: "Đóng góp bởi"
         contribute_lyric: "Đóng góp lời bài hát"
@@ -99,6 +156,141 @@ vi:
         recommend: "GỢI Ý"
         autoplay: "Tự động chơi nhạc"
         comment_here: "Bình luận tại đây"
+        favorite_list: "Danh sách yêu thích:"
+        rating: "Đánh giá của bạn:"
+        please_login: "Làm ơn đăng nhập để tạo danh sách yêu thích"
+        name: "Tên danh sách yêu thích:"
+        submit: "Tạo"
+        add_favorite: "Thêm vào"
+        song: "Bài hát: "
+    shared:
+      comment:
+        ago: "trước"
+        your_sure: "Bạn chắc chứ?"
+        edit: "Edit"
+      error_messages:
+        form_contains: "Biểu mẫu có chứa"
+    favorite_lists:
+      favorite:
+        add: "Thêm"
+        sub: "Bỏ"
+      show:
+        favorite_list: "Danh sách yêu thích"
+        not_song: "Danh sach yêu thích không có bài hát nào, vui lòng chọn danh sách khác"
+        user: "Người tạo: "
+        recommend: "DANH SÁCH YÊU THÍCH"
+    categories:
+      album:
+        name: "Thể Loại:"
+        artist: "Nghệ Sĩ:"
+    searchs:
+      search:
+        result: "Kết quả tìm kiếm cho"
+    artists:
+      show:
+        all_songs: "Bài hát của"
+        all_albums: "Albums của"
+        songs: "Bài hát"
+        album: "Album"
+        describe: "Tiểu sử"
+        see_more: "Xem thêm"
+    pages:
+      home:
+        hot_songs: "TỐP NHỮNG BÀI HÁT NỔI BẬT"
+        hot_albums: "TỐP ALBUM NỔI BẬT"
+        new_songs: "BÀI HÁT MỚI"
+    admin:
+      layouts:
+        header:
+          dasboard: "BẢNG ĐIỀU KHIỂN"
+          hello: "Xin chào"
+          profile: "Thông tin người dùng"
+          log_out: "Đăng xuất"
+        sidebar:
+          users: "Người dùng"
+          categories: "Thể loại"
+          albums: "Album"
+          songs: "Bài hát"
+          artists: "Nghệ sĩ"
+          lyrics: "Lời bài hát"
+      users:
+        user:
+          admin: "Quản trị"
+          member: "Thành viên"
+          your_sure: "Bạn có chắc chắn muốn xóa không?"
+        index:
+          user_list: "Danh sách người dùng"
+          stt: "STT"
+          name: "Tên người dùng"
+          email: "Email"
+          activate: "Trạng thái"
+          created: "Thời gian tạo"
+          role: "Vai trò"
+          edit: "Sửa"
+          delete: "Xóa"
+          fill_search: "Tìm kiếm bằng tên hoặc email"
+          search: "Tìm kiếm"
+          new_user: "Thêm người dùng"
+          activated: "Kích hoạt"
+          not_activated: "Chưa kích hoạt"
+        edit:
+          activate: "Kích hoạt"
+      artists:
+        index:
+          name: "Tên nghệ sĩ"
+          artist_list: "Danh sách nghệ sĩ"
+          find_artist: "Tìm kiếm nghệ sĩ theo tên"
+          new_artist: "Thêm nghệ sĩ"
+          submit: "Gửi"
+      categories:
+        index:
+          name: "Tên thể loại"
+          new_category: "Thêm thể loại"
+          categories_list: "Danh sách thể loại"
+          find_by_name: "Tìm theo tên thể loại"
+        new:
+          new_category: "Tạo thể loại"
+        edit:
+          edit_category: "Sửa thể loại"
+      albums:
+        index:
+          name: "Tên album"
+          artist: "Nghệ sĩ"
+          category: "Thể loại"
+          album_list: "Danh sách album"
+          find_by_name: "Tìm theo tên album"
+          new_album: "Thêm Album"
+          new_artist: "Thêm nghệ sĩ"
+          new_category: "Thêm thể loại"
+          edit_album: "Sửa album"
+      songs:
+        index:
+          song: "Tên bài hát"
+          album: "Tên Album"
+          hot: "Bài hát nổi bật"
+          song_list: "Danh sách bài hát"
+          find_song: "Tìm kiếm bài hát theo tên hoặc album"
+          new_song: "Thêm bài hát"
+        form:
+          name: "Tên bài hát"
+          album: "Album"
+          cover_image: "Ảnh bìa"
+          audio: "Audio"
+          hot_song: "Bài hát nổi bật"
+        new:
+          new_song: "Bài hát mới"
+        edit:
+          edit_song: "Sửa lại bài hát"
+      lyrics:
+        index:
+          user_name: "Tên người đóng góp"
+          song: "Bài hát"
+          status: "Trạng thái"
+          lyric_list: "Danh sách lời bài hát"
+          find_lyric: "Tìm lời theo tên bài hát hoặc người đóng góp"
+        edit:
+          lyric: "Sửa lời bài hát"
+          accepted: "Phê duyệt"
   mailers:
     user_mailer:
       account_activation: "Kích hoạt tài khoản"

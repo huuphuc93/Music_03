@@ -7,7 +7,11 @@
     </div>
     <div class="col-md-10">
       <h4><%= link_to recommend.name, song_path(recommend) %></h4>
-      <h5><%= recommend.artist_name %></h5> 
+      <h5>
+        <%= link_to artist_path(recommend.album.artist) do %>
+          <%= t("views.categories.album.artist") + " #{recommend.artist_name}" %>
+        <% end %>
+      </h5> 
     </div>
   </div>
 </li>

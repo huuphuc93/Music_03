@@ -2,22 +2,36 @@
   <div class= "footer-top">
     <div class= "container">
       <div class= "latter">
-        <h6><%= t "views.layouts.footer.mp3" %></h6>
         <div class= "sub-left-right">
-          <form>
-            <input type= "text" value= "Enter email here" />
-            <input type= "submit" value= "SUBSCRIBE" />
-          </form>
+          <div class="row">
+            <div class="col-md-3">
+              <%= image_tag "logo.jpg" %>
+            </div>
+            <div class="col-md-9">
+              <ul>
+                <li>© 2015 VNG Corporation</li>
+                <li><%= t "views.layouts.footer.lisence" %></li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class= "clearfix"> </div>
       </div>
       <div class= "latter-right">
-        <p><%= t "views.layouts.footer.follow" %></p>
-        <ul class="face-in-to">
-          <li><a href= "#" ><span> </span></a></li>
-          <li><a href= "#" ><span class= "facebook-in" ></span></a></li>
-          <div class= "clearfix" ></div>
-        </ul>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+              <%= t "views.layouts.footer.language" %>
+              <span><i class="fa fa-globe fa-1px"></i></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to t("views.layouts.footer.english"), locale: "en" %>
+              </li>
+              <li>
+                <%= link_to t("views.layouts.footer.vietnamese"), locale: "vi" %>
+              </li>
+            </ul>
+          </div>
         <div class= "clearfix" ></div>
       </div>
       <div class= "clearfix" ></div>

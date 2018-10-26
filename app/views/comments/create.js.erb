@@ -1,0 +1,6 @@
+<% if @comment.user_id? %>
+  $(".comment-content").prepend("<%= j render partial: 'shared/comment', locals: {comment: @comment} %>");
+  $("#comment_content").val("");
+<% else %>
+  alert(I18n.t("flash.please_login"));
+<% end %>

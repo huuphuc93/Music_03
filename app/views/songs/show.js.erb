@@ -1,0 +1,6 @@
+$("<%= j render partial: 'shared/comment', collection: @comments %>").appendTo($(".comment-content"));
+<% if @comments.last_page? %>
+  $(".pagination").html(I18n.t("flash.end_loading"));
+<% else %>
+  $(".pagination").html("<%=j link_to_next_page(@comments, t("views.mobiles.show.more_comment"), :remote => true) %>");
+<% end %>

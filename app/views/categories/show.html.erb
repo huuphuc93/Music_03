@@ -1,0 +1,9 @@
+<div class="shoes-grid">
+  <h2><%= @category.name %></h2>
+  <div class="row album-collection">
+    <%= render partial: "album", collection: @albums %>
+  </div>
+  <div class="pagination">
+    <%= paginate @albums, remote: true %>
+  </div>
+</div>

@@ -1,2 +1,7 @@
-alert(I18n.t("flash.created_lyric_succeed"));
-$('.modal-header .close').click();
+<% if current_user %>
+  alert(I18n.t("flash.created_lyric_succeed"));
+  CKEDITOR.instances.lyric_content.setData("");
+  $(".modal-header .close").click();
+<% else %>
+  alert(I18n.t("flash.please_login"))
+<% end %>

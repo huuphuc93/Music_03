@@ -1,0 +1,17 @@
+<%= form_for [:admin, @lyric] do |f| %>
+  <div class="register-top-grid">
+    <h3><%= t "views.admin.lyrics.edit.lyric" %></h3>
+    <div class="mation">
+      <%= f.cktext_area :content, class: "form-control" %>
+    </div>
+    <%= f.label :accepted, t("views.admin.lyrics.index.status"),
+      class: "check_box inline" do %>
+      <%= f.check_box :accepted %>
+      <span><%= t "views.admin.lyrics.edit.accepted" %> <label></label></span>
+    <% end %><br/>
+    <div class="register-but">
+      <%= f.submit t("views.users.form.submit"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+<div class="clearfix"> </div>

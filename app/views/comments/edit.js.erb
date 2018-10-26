@@ -1,0 +1,2 @@
+$(".form-comment").remove();
+$("#comment-"+ <%= @comment.id %>).append("<%= j render 'comments/form_comment' %>")

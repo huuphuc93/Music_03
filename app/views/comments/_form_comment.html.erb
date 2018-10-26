@@ -1,0 +1,12 @@
+<div class="form-comment form-group well">
+  <%= form_for @comment, remote: true do |f| %>
+    <%= f.hidden_field :commentable_type, value: @commentable_type %>
+    <%= f.hidden_field :commentable_id, value: @commentable_id %>
+    <%= f.text_area :content, class: "form-control", 
+      placeholder: t("views.songs.show.comment_here") %>
+    <div class="submit-comment">
+      <%= f.submit t("views.songs.show.submit"), 
+        class: "btn btn-primary submit-comment-form" %>
+    </div>
+  <% end %>
+</div>

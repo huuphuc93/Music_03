@@ -1,0 +1,2 @@
+$("#category-collection").html("<%= j render partial: 'category', collection: @categories %>");
+$("#paginator").html("<%= j paginate(@categories, :remote => true) %>");

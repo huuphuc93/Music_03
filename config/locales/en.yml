@@ -1,5 +1,6 @@
 en:
   flash:
+    rating_success: "Rating success"
     login_success: "Login succeed"
     account_not_activated: "Account not activated."
     account_activated: "Account activated!"
@@ -19,7 +20,49 @@ en:
     created_lyric_succeed: "Create lysic succeed"
     created_lyric_failed: "Create lysic failed"
     song_not_exits: "Cant find song with id: "
+    album_not_exits: "Cant find album with id: "
+    favorite_list_not_exits: "Cant find favorite list with id: "
+    category_not_exits: "Cant find category with id: "
+    favorite_not_exits: "Cant find favorite with id: "
+    comment_not_exits: "Cant find comment with id: "
+    artist_not_exits: "Cant find artist with id: "
+    lyric_not_exits: "Cant find artist with id: "
+    delete_favorite_list_succeed: "Delete favorite list succeed"
+    delete_favorite_list_failed: "Delete favorite list failed"
+    create_user_succeed: "Succeed create user"
+    create_user_failed: "Failed create user"
+    update_user_succeed: "Succeed update user"
+    update_user_failed: "Failed update user"
+    delete_user_succeed: "Succeed delete user"
+    delete_user_failed: "Failed delete user"
+    permission_denied: "You don't have permission to access"
+    create_category_succeed: "Succeed create category"
+    create_category_failed: "Failed create category"
+    update_category_succeed: "Succeed update category"
+    update_category_failed: "Failed update category"
+    delete_category_succeed: "Succeed delete category"
+    delete_category_failed: "Failed delete category"
+    create_artist_succeed: "Succeed create artist"
+    create_artist_failed: "Failed create artist"
+    update_artist_succeed: "Succeed update artist"
+    update_artist_failed: "Failed update artist"
+    create_album_succeed: "Succeed create album"
+    create_album_failed: "Failed create album"
+    update_album_succeed: "Succeed update album"
+    update_album_failed: "Failed update album"
+    update_lyric_succeed: "Succeed update lyric"
+    update_lyric_failed: "Failed update lyric"
+    create_song_succeed: "Succeed create song"
+    create_song_failed: "Failed create song"
+    update_song_succeed: "Succeed update song"
+    update_song_failed: "Failed update song"
   views:
+    pagination:
+      first:  "First"
+      truncate: "..."
+      last: "Last"
+      next: "Next"
+      previous: "Previous"
     password_resets:
       edit:
         reset_password: "Reset password"
@@ -41,6 +84,7 @@ en:
         new_account: "Create an Account"
     user_mailer:
       account_activation:
+        hi: "Hi"
         welcome: "Welcome to the Music_03!."
         click_link: "Click on the link below to activate your account:"
       password_reset:
@@ -65,8 +109,15 @@ en:
         save_change: "Save changes"
         update_profile: "Update your profile"
         change: "Change"
+      show:
+        favorite_list: "Favorite List"
+        name: "Name"
+        delete: "Delete"
+    albums:
+      show:
+        recommend: "GỢI Ý ALBUM"
     layouts:
-      left-menu:
+      left_menu:
         categories: "Music Genre"
         pop: "Pop"
         rock: "Rock"
@@ -80,9 +131,15 @@ en:
         login: "Login"
         profile: "Profile"
         logout: "Logout"
+        search: "Search"
+        content_search: "Enter search term..."
       footer:
         mp3: "MP3 Player"
         follow: "Follow Us"
+        language: "Language"
+        english: "English"
+        vietnamese: "Vietnamese"
+        lisence: "Lisence social number 314/GP-BTTTT"
     songs:
       show:
         artist: "Artist"
@@ -99,6 +156,141 @@ en:
         recommend: "Recommend"
         autoplay: "Autoplay"
         comment_here: "Comment Here"
+        favorite_list: "Favorite lists:"
+        rating: "Rating:"
+        please_login: "Please login to add favorite list"
+        name: "name of favorite list:"
+        submit: "Submit"
+        add_favorite: "Add To Favorite List"
+        song: "Song: "
+    shared:
+      error_messages:
+        form_contains: "The form contains"
+      comment:
+        ago: "ago"
+        your_sure: "Are you sure?"
+        edit: "Edit"
+    favorite_lists:
+      favorite:
+        add: "Add"
+        sub: "Remove"
+      show:
+        favorite_list: "Favorite List"
+        not_song: "Favorite List has no song, please select song in to list"
+        user: "User: "
+        recommend: "Recommend Favorite List"
+    categories:
+      album:
+        name: "Category Name: "
+        artist: "Artist Name: "
+    searchs:
+      search:
+        result: "Result"
+    artists:
+      show:
+        all_songs: "Songs of"
+        all_albums: "Albums of"
+        songs: "Songs"
+        album: "Album"
+        describe: "Decribe"
+        see_more: "See More"
+    pages:
+      home:
+        hot_songs: "Hot Songs"
+        hot_albums: "Hot albums"
+        new_songs: "New Song"
+    admin:
+      layouts:
+        header:
+          dasboard: "DASHBOARD"
+          hello: "Hello"
+          profile: "Profile"
+          log_out: "Log out"
+        sidebar:
+          users: "Users"
+          categories: "Categories"
+          albums: "Albums"
+          songs: "Songs"
+          artists: "Artists"
+          lyrics: "Lyrics"
+      users:
+        user:
+          admin: "Admin"
+          member: "Member"
+          your_sure: "Are you sure?"
+        index:
+          user_list: "User List"
+          stt: "Number"
+          name: "Name"
+          email: "Email"
+          activate: "Activated"
+          created: "Create At"
+          role: "Role"
+          edit: "Edit"
+          delete: "Delete"
+          fill_search: "Fill by your name or email"
+          search: "Search"
+          new_user: "New User"
+          activated: "Activated"
+          not_activated: "Not Activated"
+        edit:
+          activate: "Activated"
+      artists:
+        index:
+          name: "Name"
+          artist_list: "Artists List"
+          find_artist: "Find artist by name"
+          new_artist: "New Artist"
+          submit: "Submit"
+      categories:
+        index:
+          name: "Name"
+          new_category: "New Category"
+          categories_list: "Categories List"
+          find_by_name: "Find by name"
+        new:
+          new_category: "New Category"
+        edit:
+          edit_category: "Edit Category"
+      albums:
+        index:
+          name: "Name"
+          artist: "Artist"
+          category: "Category"
+          album_list: "Albums List"
+          find_by_name: "Find by name of album"
+          new_album: "New Album"
+          new_artist: "New Artist"
+          new_category: "New Categrory"
+          edit_album: "Edit Album"
+      songs:
+        index:
+          song: "Song"
+          album: "Album"
+          hot: "Hot"
+          song_list: "Song List"
+          find_song: "Find song by name or album name"
+          new_song: "New Song"
+        form:
+          name: "Name"
+          album: "Album"
+          cover_image: "Cover Image"
+          audio: "Audio"
+          hot_song: "Hot Song"
+        new:
+          new_song: "New Song"
+        edit:
+          edit_song: "Edit"
+      lyrics:
+        index:
+          user_name: "User Name"
+          song: "Song"
+          status: "Song"
+          lyric_list: "Lyric List"
+          find_lyric: "Find lyric with name of song or name of user contribute"
+        edit:
+          lyric: "Lyric"
+          accepted: "Accepted"
   mailers:
     user_mailer:
       account_activation: "Account activation"

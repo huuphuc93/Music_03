@@ -1,13 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
-
+  before_action :set_categories
+  before_action :set_locale
+  
   def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = t "flash.please_login"
-      redirect_to login_url
-    end
+    return if logged_in?
+    store_location
+    flash[:danger] = t "flash.please_login"
+    redirect_to login_url
+    
   end
 
   private
@@ -18,5 +20,9 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+  
+  def set_categories
+    @categories = Category.select(:id, :name)
   end
 end

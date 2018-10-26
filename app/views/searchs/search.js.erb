@@ -1,0 +1,2 @@
+$(".result-collection").html("<%= j render partial: "result", collection: @results %>");
+$(".pagination").html("<%= j paginate(@results, remote: true) %>");

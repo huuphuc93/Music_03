@@ -15,6 +15,12 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true,
     length: {minimum: Settings.user.minimum_password}, allow_nil: true
+  
+  scope :order_user , ->{order created_at: :desc}
+  scope :search_by_name, -> search do
+    select(:id, :name, :email, :role, :created_at, :activated).
+      where("name LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%")
+  end
 
   def remember
     self.remember_token = User.new_token
@@ -70,14 +76,14 @@ class User < ApplicationRecord
       end
     end
 
-    def new_with_session params
-      if session["user_attributes"]
-        new(session["user_attributes"]) do |user|
+    def new_with_session params, session
+      if session[:user_attributes]
+        new(session[:user_attributes].to_h) do |user|
           user.attributes = params
           user.valid?
         end
       else
-        super
+        new params
       end
     end
   end

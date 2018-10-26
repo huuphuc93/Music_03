@@ -17,6 +17,8 @@ namespace :db do
     20.times do
       Artist.create do |artist|
         artist.name = Faker::Kpop.ii_groups
+        artist.cover_image = open(Rails.root.join("app/assets/audio/artist.jpg"))
+        artist.describe = Faker::Lorem.paragraph(20)
       end
     end
     
@@ -27,6 +29,7 @@ namespace :db do
           album.name = Faker::OnePiece.location
           album.category_id = @i
           album.artist_id = @i
+          album.cover_image = open(Rails.root.join("app/assets/audio/album.jpg"))
         end
       end
       @i += 1

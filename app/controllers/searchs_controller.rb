@@ -1,6 +1,10 @@
 class SearchsController < ApplicationController
   def search
-    @songs = SearchSongQuery.new params[:search]
-    @results = @songs.search_songs
+    @results = Song.search_song(params[:search]).page(params[:page])
+      .per Settings.paginate.page
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 end

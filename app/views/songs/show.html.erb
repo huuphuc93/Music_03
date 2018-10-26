@@ -1,5 +1,10 @@
 <div class="shoes-grid">
-  <h2><%= @song.name %> - <%= @song.artist_name %></h2>
+  <h3><%= t("views.songs.show.song") + @song.name %> - 
+    <%= link_to @song.artist_name, artist_path(@song.album.artist) %></h3>
+  <div class="rating-section" data-id= "<%= @song.id %>"
+    data-type= "<%= @song.class.name %>">
+    <%= render "shared/rating" %>
+  </div>
   <div class="audio-player">
     <div class="row">
       <div class="col-md-4">
@@ -11,31 +16,57 @@
         </div>
       </div>
     </div>
-    <%= audio_tag @song.audio, autoplay: true, controls: true, class: "audio-song" %>
+    <%= audio_tag @song.audio, autoplay: true, controls: true,
+      class: "audio-song" %>
   </div>
   <div class="row">
     <div class="col-md-6">
       <h5>
-        <%= t "views.songs.show.artist" %>:&nbsp<b><%= @song.artist_name %></b>
+        <%= t "views.songs.show.artist" %>:&nbsp
+        <b>
+          <%= link_to @song.artist_name, artist_path(@song.album.artist) %>
+        </b>
           &nbsp*&nbsp<%= t "views.songs.show.album" %>:&nbsp
-          <b><%= @song.album_name %></b>
+          <b><%= link_to @song.album_name, album_path(@song.album) %></b>
       </h5>
       <h5>
-        <%= t "views.songs.show.category" %>:&nbsp<b><%= @song.category_name %></b>
+        <%= t "views.songs.show.category" %>:&nbsp
+        <b>
+          <%= link_to @song.category_name, category_path(@song.album.category) %>
+        </b>
       </h5>
     </div>
     <div class="col-md-4">
       <h3>
-        <span class="pull-right"><i class="fa fa-plus fa-3px"></i>
+        <span class="pull-right favorite-plus"><i class="fa fa-plus fa-3px"></i>
+          <%= t "views.songs.show.add_favorite" %>
         </span>
       </h3>
     </div>
     <div class="col-md-2">
       <h3>
         <span class="pull-left"><i class="fa fa-headphones fa-3px"></i></span>
-        &nbsp<%= @song.view %>
+          &nbsp<%= @song.view %>
       </h3>
     </div>
+  </div>
+  <div class= "favorite-content">
+    <h4>
+      <span><i class="fa fa-heart fa-1px"></i></span>
+        &nbsp<%= t "views.songs.show.favorite_list" %>
+    </h4>
+    <ul class= "favorite-item">
+      <%= render partial: "favorite_lists/favorite_list",
+        collection: @favorite_lists %>
+    </ul>
+    <ul>
+      <%= form_for @favorite_list, remote: true do |f| %>
+        <%= f.hidden_field :song_id, value: @song.id %>
+        <%= f.label :name, t("views.songs.show.name") %>
+        <%= f.text_field :name %>
+        <%= f.submit t("views.songs.show.submit"), class: "btn btn-primary" %>
+      <% end %>
+    </ul>
   </div>
   <div class="lyric-section">
     <% if @lyrics.present? %>
@@ -46,13 +77,13 @@
         </div>
         <div class="col-md-4 text-center">
           <span class= "previus">
-            <%= render partial: "previus", locals: {lyric_item: @lyric_item} %>
+            <%= render partial: "shared/previus", locals: {lyric_item: @lyric_item} %>
           </span>&nbsp<%= t "views.songs.show.version" %>&nbsp
           <span class= "count-version">
             <%= @lyrics.index(@lyric_item) + 1 %>
           </span>&nbsp/&nbsp<%= @lyrics.count %>&nbsp
           <span class= "next">
-            <%= render partial: "next", locals: {lyric_item: @lyric_item} %>
+            <%= render partial: "shared/next", locals: {lyric_item: @lyric_item} %>
           </span>
         </div>
         <div class="col-md-4">
@@ -66,17 +97,17 @@
         </div>
       </div>
       <div class= "lyric-content">
-        <p><%= @lyric_item.content %></p>
+        <p><%= raw @lyric_item.content %></p>
       </div>
     <% else %>
       <%= t "views.songs.show.dont_have_lyric" %>
     <% end %>
     <div class= "lyric-footer">
-      <a data-toggle="modal" data-target="#myModal">
+      <a data-toggle="modal" data-target="#myModal1">
         <i><%= t "views.songs.show.contribute_lyric" %></i>
       </a>
     </div>
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="myModal1" role="dialog">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
@@ -86,11 +117,7 @@
             </h4>
           </div>
           <div class="modal-body">
-            <%= form_for [@song, @lyric], remote: :true do |f| %>
-              <%= f.label :content, t("views.songs.show.content") %>
-              <%= f.cktext_area :content, class: "form-control" %><br/>
-              <%= f.submit t("views.songs.show.submit"), class: "btn btn-primary" %>
-            <% end %>
+          <%= render "shared/form_lyric" %>
           </div>
         </div>
       </div>
@@ -99,18 +126,25 @@
   <div class="comment-section">
     <div class="form-group well">
       <%= form_for @comment, remote: true do |f| %>
+        <%= f.hidden_field :commentable_type, value: @song.class.name %>
         <%= f.hidden_field :commentable_id, value: @song.id %>
         <%= f.text_area :content, class: "form-control", 
-          placeholder: t("views.songs.show.comment_here") %><br/>
+          placeholder: t("views.songs.show.comment_here") %>
         <div class="submit-comment">
           <%= f.submit t("views.songs.show.submit"), 
             class: "btn btn-primary submit-comment-form" %>
         </div>
       <% end %>
     </div>
+    <div class= "comment-content">
+      <%= render partial: "shared/comment", collection: @comments %>
+    </div>
+    <p class="pagination">
+      <%= link_to_next_page(@comments, "Next Page", :remote => true) %>
+    </p>
   </div>
+  <div class="fix-height"></div>    
 </div>
-
 <div class="sub-cate">
 	<div class="top-nav rsidebar span_1_of_left fix-border-recommend">
 	  <h3 class="cate">
@@ -125,4 +159,5 @@
     </ul>
   </div>
 </div>
-<div class="clearfix"> </div>    
+<div class="clearfix"> </div>
+<%= javascript_include_tag "autoplay" %>

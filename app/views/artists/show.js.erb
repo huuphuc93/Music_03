@@ -1,0 +1,5 @@
+$(".song-collection").html("<%= j render partial: 'artists/song', collection: @songs %>");
+$(".pagination-song").html("<%= j paginate(@songs, remote: true, param_name: :songs) %>");
+$(".album-collection").html("<%= j render partial: 'categories/album', collection: @albums %>");
+$(".pagination-album").html("<%= j paginate(@albums, remote: true, param_name: :albums) %>");
+

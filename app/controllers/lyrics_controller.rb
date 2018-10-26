@@ -1,10 +1,7 @@
 class LyricsController < ApplicationController
-  before_action :logged_in_user, only: :create
-  before_action :load_variable, only: [:next, :previus]
-  
+  before_action :load_variable, only: %i(next previus)
   def create
     @lyric = Lyric.new lyric_params
-    @lyric.song_id = params[:song_id]
     @lyric.user = current_user
     if @lyric.save
       respond_to do |format|
@@ -14,14 +11,14 @@ class LyricsController < ApplicationController
   end
   
   def next
-    @lyric_new_item = @lyrics[@index + 1]
+    @lyric_new_item = @lyrics[@index + Settings.index.increase]
     respond_to do |format|
       format.js
     end
   end
 
   def previus
-    @lyric_new_item = @lyrics[@index - 1]
+    @lyric_new_item = @lyrics[@index - Settings.index.increase]
     respond_to do |format|
       format.js
     end
@@ -30,7 +27,7 @@ class LyricsController < ApplicationController
   private
   
   def lyric_params
-    params.require(:lyric).permit :content
+    params.require(:lyric).permit :content, :song_id
   end
   
   def load_variable

@@ -9,8 +9,9 @@
           </div>
           <div class="search">
 					<%= form_tag "/search", method: :get do %>
-						<%= text_field_tag "search", nil, placeholder: "Enter search term..." %>
-						<%= submit_tag "Search" %>
+					<%= text_field_tag "search", nil, 
+						  placeholder: t("views.layouts.header.content_search") %>
+						<%= submit_tag t("views.layouts.header.search") %>
 					<% end %>
           </div>
           <div class="clearfix"> </div>

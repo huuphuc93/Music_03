@@ -1,0 +1,90 @@
+<%= form_for [:admin, @album] do |f| %>
+  <div class="register-top-grid">
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="mation">
+      <span><%= t "views.admin.albums.index.name" %><label>*</label></span>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :artist, class: "control-label" %>
+      <%= link_to "#", data: {toggle: "modal", target: "#exampleModal"} do %>
+        <span><i class="fa fa-plus fa-2px"></i>&nbsp
+          <%= t "views.admin.albums.index.new_artist" %></span>
+      <% end %>
+      <div class="artist-selection">
+        <%= render "select" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :category, class: "control-label" %>
+      <%= link_to "#", data: {toggle: "modal", target: "#exampleModal1"} do %>
+        <span><i class="fa fa-plus fa-2px"></i>&nbsp
+          <%= t "views.admin.albums.index.new_category" %></span>
+      <% end %>
+      <div class="category-selection">
+        <%= render "select-category" %>
+      </div>
+    </div>
+      <div class="register-but">
+        <%= f.submit t("views.admin.artists.index.submit"), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="clearfix"></div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Artist</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for [:admin, @artist], remote: true do |f| %>
+          <div class="register-top-grid">
+            <%= render "shared/error_messages", object: f.object %>
+            <div class="mation">
+              <span>Name<label>*</label></span>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit :Submit, class: "btn btn-primary" %>
+          </div>
+        </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Categrory</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for [:admin, @category], remote: true do |f| %>
+          <div class="register-top-grid">
+            <%= render "shared/error_messages", object: f.object %>
+            <div class="mation">
+              <span>Name<label>*</label></span>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit :Submit, class: "btn btn-primary" %>
+          </div>
+          </div>
+          </div>
+        <% end %>
+        </div>

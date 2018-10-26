@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <h3 class="sub-header"><%= t "views.admin.songs.index.song_list" %></h3>
+    <%= form_tag(admin_songs_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search],
+        placeholder: t("views.admin.songs.index.find_song") %>
+      <%= submit_tag t("views.admin.users.index.search"), name: nil %>
+    <% end %><br/>
+    <%= link_to new_admin_song_path do %>
+      <span><i class="fa fa-plus fa-2px"></i>&nbsp
+        <%= t "views.admin.songs.index.new_song" %></span>
+    <% end %>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th><%= t "views.admin.users.index.stt" %></th>
+          <th><%= t "views.admin.songs.index.song" %></th>
+          <th><%= t "views.admin.songs.index.album" %></th>
+          <th><%= t "views.admin.songs.index.hot" %></th>
+          <th><%= t "views.admin.users.index.created" %></th>
+          <th><%= t "views.admin.users.index.edit" %></th>
+          <th><%= t "views.admin.users.index.delete" %></th>
+        </tr>
+        </thead>
+        <tbody id="song-collection">
+          <%= render partial: "song", collection: @songs %>
+        </tbody>
+      </table>
+      <div id="paginator">
+        <%= paginate @songs, :remote => true %>
+      </div>
+    </div>
+  </div>
+</div>

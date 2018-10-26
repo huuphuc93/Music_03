@@ -1,0 +1,12 @@
+<li class= "recommend-song item1">  
+  <div class="row">
+    <div class="col-md-10">
+      <h4><%= link_to recommend.name, favorite_list_path(recommend) %></h4>
+      <h5>
+        <%= link_to user_path(recommend.user) do %>
+          <%= t("views.favorite_lists.show.user") + recommend.user.name %>
+        <% end %>
+      </h5> 
+    </div>
+  </div>
+</li>

@@ -1,0 +1,36 @@
+<div class="container-fluid">
+ <div class="row">
+  <h3 class="sub-header"><%= t "views.admin.users.index.user_list" %></h3>
+   <%= form_tag(admin_users_path, method: :get) do %>
+     <%= text_field_tag :search, params[:search],
+       placeholder: t("views.admin.users.index.fill_search") %>
+     <%= submit_tag t("views.admin.users.index.search"), name: nil %>
+   <% end %><br/>
+    <%= link_to new_admin_user_path do %>
+      <span><i class="fa fa-plus fa-2px"></i>&nbsp&nbsp
+        <%= t("views.admin.users.index.new_user") %></span>
+    <% end %>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= t "views.admin.users.index.stt" %></th>
+            <th><%= t "views.admin.users.index.name" %></th>
+            <th><%= t "views.admin.users.index.email" %></th>
+            <th><%= t "views.admin.users.index.activate" %></th>
+            <th><%= t "views.admin.users.index.created" %></th>
+            <th><%= t "views.admin.users.index.role" %></th>
+            <th><%= t "views.admin.users.index.edit" %></th>
+            <th><%= t "views.admin.users.index.delete" %></th>
+          </tr>
+        </thead>
+        <tbody id="user-collection">
+          <%= render partial: "user", collection: @users %>
+        </tbody>
+      </table>
+      <div class="paginator">
+         <%= paginate @users, :remote => true %>
+      </div>
+    </div>
+  </div>
+</div>

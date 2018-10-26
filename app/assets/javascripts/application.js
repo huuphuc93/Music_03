@@ -8,4 +8,9 @@
 //= require i18n
 //= require i18n.js
 //= require i18n/translations
-//= require_tree .
+//= require jquery.infinite-pages
+//= require album
+//= require comment
+//= require pages
+//= require rating
+//= require song

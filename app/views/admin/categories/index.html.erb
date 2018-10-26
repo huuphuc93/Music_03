@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="row">
+    <h3 class="sub-header"><%= t "views.admin.categories.index.categories_list" %></h3>
+    <%= form_tag(admin_categories_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search],
+        placeholder: t("views.admin.categories.index.find_by_name") %>
+      <%= submit_tag t("views.admin.users.index.search"), name: nil %>
+    <% end %><br/>
+    <%= link_to new_admin_category_path do %>
+      <span><i class="fa fa-plus fa-2px"></i>&nbsp&nbsp
+        <%= t "views.admin.categories.index.new_category" %>
+      </span>
+    <% end %>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th><%= t "views.admin.users.index.stt" %></th>
+          <th><%= t "views.admin.categories.index.name" %></th>
+          <th><%= t "views.admin.users.index.created" %></th>
+          <th><%= t "views.admin.users.index.edit" %></th>
+          <th><%= t "views.admin.users.index.delete" %></th>
+        </tr>
+        </thead>
+        <tbody id="category-collections">
+          <%= render partial: "category", collection: @categories %>
+        </tbody>
+      </table>
+      <div id="paginator">
+        <%= paginate @categories, :remote => true %>
+      </div>
+    </div>
+  </div>
+</div>

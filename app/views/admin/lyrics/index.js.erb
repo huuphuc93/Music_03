@@ -1,0 +1,2 @@
+$("#lyric-collection").html("<%= j render partial: 'lyric', collection: @lyrics %>");
+$("#paginator").html("<%= j paginate(@lyrics, :remote => true) %>");

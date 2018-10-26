@@ -1,0 +1,2 @@
+$(".form-comment").remove();
+$("#comment-"+ <%= @comment.id %>).html("<%= j render partial: 'shared/comment', locals: {comment: @comment} %>")

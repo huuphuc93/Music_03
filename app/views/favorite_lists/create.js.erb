@@ -1,0 +1,6 @@
+<% if @favorite_list %>
+  $(".favorite-item").append("<%= j render partial: 'favorite_lists/favorite_list', locals: {favorite_list: @favorite_list} %>")
+  $("#favorite_list_name").val("");
+<% else %>
+  alert(I18n.t("flash.please_login"));
+<% end %>

@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <h3 class="sub-header"><%= t "views.admin.albums.index.album_list" %></h3>
+    <%= form_tag(admin_albums_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search],
+        placeholder: t("views.admin.albums.index.find_by_name") %>
+      <%= submit_tag t("views.admin.users.index.search"), name: nil %>
+    <% end %><br/>
+    <%= link_to new_admin_album_path do %>
+      <span><i class="fa fa-plus fa-2px"></i>&nbsp
+      <%= t "views.admin.albums.index.new_album" %></span>
+    <% end %>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th><%= t "views.admin.users.index.stt" %></th>
+          <th><%= t "views.admin.albums.index.name" %></th>
+          <th><%= t "views.admin.albums.index.artist" %></th>
+          <th><%= t "views.admin.albums.index.category" %></th>
+          <th><%= t "views.admin.users.index.created" %></th>
+          <th><%= t "views.admin.users.index.edit" %></th>
+          <th><%= t "views.admin.users.index.delete" %></th>
+        </tr>
+        </thead>
+        <tbody id="album-collection">
+          <%= render partial: "album", collection: @albums %>
+        </tbody>
+      </table>
+      <div id="paginator">
+        <%= paginate @albums, :remote => true %>
+      </div>
+    </div>
+  </div>
+</div>

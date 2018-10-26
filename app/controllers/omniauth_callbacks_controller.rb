@@ -6,7 +6,7 @@ class OmniauthCallbacksController < ApplicationController
       flash[:success] = t "flash.login_success"
       redirect_to root_path
     else
-      session["user_attributes"] = @user.attributes
+      session[:user_attributes] = @user.attributes
       redirect_to signup_path
     end
   end

@@ -1,9 +1,44 @@
 remember_me: 1
+activated: 0
 user:
   maximum_name: 50
   maximum_email: 255
   minimum_password: 6
+
+limit:
+  song: 12
+  album: 8
   
+album:
+  maximum_name: 100
+
+artist:
+  maximum_name: 100
+
+category:
+  maximum_name: 100
+  
+favorite_list:
+  maximum_name: 100
+
+lyric:
+  minimum_content: 6
+
+view:
+  count_views: 1
+  
+offset:
+  sub_page: 1
+  first_page: 0
+  
+index:
+  increase: 1
+  first_item: 0
+  
+paginate:
+  page: 10
+  paginate_album: 16
+
 users:
   -
     name: nomal

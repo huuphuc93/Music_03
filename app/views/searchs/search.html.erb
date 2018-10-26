@@ -1,5 +1,11 @@
 <div class="shoes-grid">
+  <h1><%= t "views.searchs.search.result" %>:&nbsp<%= params[:search] %></h1>
   <ul>
-    <%= render partial: "result", collection: @results %>
+    <div class="result-collection">
+      <%= render partial: "result", collection: @results %>
+    </div>
   </ul>
+  <div class="pagination">
+    <%= paginate @results, remote: true %>
+  </div>
 </div>

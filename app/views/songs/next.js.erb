@@ -1,0 +1,16 @@
+<% return if @song.nil? %>
+$(".album-audio-player").html("<%= j render partial: 'shared/audio_player', locals: {song: @song} %>");
+$(".fix-border").removeClass('song-is-chose');
+$(".song-<%= @song.id %>").addClass('song-is-chose');
+<% if @lyric_item.present? %>
+  $(".lyric-content").html("<p><%= @lyric_item.content %></p>");
+  $(".contribute").html("<%= @lyric_item.user_name %>");
+<% end %>
+<% if @lyrics %>
+  $(".total-version").html("<%= @lyrics.count %>");
+<% end %>
+
+$(".count-version").html("<%= @lyrics.index(@lyric_item).nil? ? 0 : @lyrics.index(@lyric_item) + 1 %>");
+$(".song-name").html("<%= @song.name %>");
+$(".favorite-item").html("<%= j render partial: 'favorite_lists/favorite_list', collection: @favorite_lists %>");
+$(".modal-body").html("<%= j render 'shared/form_lyric' %>");

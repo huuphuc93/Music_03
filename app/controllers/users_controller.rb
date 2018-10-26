@@ -1,18 +1,23 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :show, :destroy]
+  before_action :logged_in_user, only: %i(edit update destroy)
+  before_action :correct_user, except: %i(index create new)
 
   def new
     @user = User.new
   end
 
+  def show
+    @favorite_lists = @user.favorite_lists.page(params[:page])
+      .per Settings.paginate.page
+  end
+  
   def create
-    @user = User.new_with_session user_params
+    @user = User.new_with_session user_params, session
     if @user.save
       UserMailer.account_activation(@user).deliver_now
       flash[:info] = t "flash.check_email"
       redirect_to root_url
-      session["user_attributes"].destroy
+      session[:user_attributes] = []
     else
       render :new
     end
